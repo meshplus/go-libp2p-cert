@@ -28,17 +28,17 @@ type Certs struct {
 	CACert         *x509.Certificate
 }
 
-func LoadCerts(repoRoot string) (*Certs, error) {
-	nodeCert, nodeCertData, err := loadCert(filepath.Join(repoRoot, "certs/node.cert"))
+func LoadCerts(repoRoot, nodeCertPath, agencyCertPath, caCertPath string) (*Certs, error) {
+	nodeCert, nodeCertData, err := loadCert(filepath.Join(repoRoot, nodeCertPath))
 	if err != nil {
 		return nil, fmt.Errorf("load node certs: %w", err)
 	}
 
-	agencyCert, agencyCertData, err := loadCert(filepath.Join(repoRoot, "certs/agency.cert"))
+	agencyCert, agencyCertData, err := loadCert(filepath.Join(repoRoot, agencyCertPath))
 	if err != nil {
 		return nil, fmt.Errorf("load agency certs: %w", err)
 	}
-	caCert, caCertData, err := loadCert(filepath.Join(repoRoot, "certs/ca.cert"))
+	caCert, caCertData, err := loadCert(filepath.Join(repoRoot, caCertPath))
 	if err != nil {
 		return nil, fmt.Errorf("load ca certs: %w", err)
 	}
