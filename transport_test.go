@@ -23,7 +23,7 @@ func newTestTransport(t *testing.T, typ, bits int) *Transport {
 		t.Fatal(err)
 	}
 
-	certs, err := LoadCerts("")
+	certs, err := LoadCerts("", "certs/node.cert", "certs/agency.cert", "certs/ca.cert")
 	if err != nil {
 		t.Fatal(err)
 	}
