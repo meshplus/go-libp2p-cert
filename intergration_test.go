@@ -42,7 +42,7 @@ func makeNode(t *testing.T, seed int64, port int) (host.Host, error) {
 		t.Fatal(err)
 	}
 
-	certs, err := LoadCerts("")
+	certs, err := LoadCerts("", "certs/node.cert", "certs/agency.cert", "certs/ca.cert")
 	if err != nil {
 		t.Fatal(err)
 	}
