@@ -38,8 +38,8 @@ func New(privkey crypto.PrivKey, certs *Certs) (*Transport, error) {
 }
 
 // SecureInbound runs the Noise handshake as the responder.
-func (t *Transport) SecureInbound(ctx context.Context, insecure net.Conn) (sec.SecureConn, error) {
-	return newSecureSession(t, ctx, insecure, "", false)
+func (t *Transport) SecureInbound(ctx context.Context, insecure net.Conn, remote peer.ID) (sec.SecureConn, error) {
+	return newSecureSession(t, ctx, insecure, remote, false)
 }
 
 // SecureOutbound runs the Noise handshake as the initiator.
