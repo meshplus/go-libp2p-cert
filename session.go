@@ -8,8 +8,9 @@ import (
 	"time"
 
 	"github.com/flynn/noise"
-	"github.com/libp2p/go-libp2p-core/crypto"
-	"github.com/libp2p/go-libp2p-core/peer"
+	"github.com/libp2p/go-libp2p/core/crypto"
+	"github.com/libp2p/go-libp2p/core/network"
+	"github.com/libp2p/go-libp2p/core/peer"
 )
 
 type secureSession struct {
@@ -120,4 +121,8 @@ func (s *secureSession) SetWriteDeadline(t time.Time) error {
 
 func (s *secureSession) Close() error {
 	return s.insecureConn.Close()
+}
+
+func (s *secureSession) ConnState() network.ConnectionState {
+	return network.ConnectionState{}
 }

@@ -11,8 +11,8 @@ import (
 	"github.com/flynn/noise"
 	"github.com/gogo/protobuf/proto"
 	pool "github.com/libp2p/go-buffer-pool"
-	"github.com/libp2p/go-libp2p-core/crypto"
-	"github.com/libp2p/go-libp2p-core/peer"
+	"github.com/libp2p/go-libp2p/core/crypto"
+	"github.com/libp2p/go-libp2p/core/peer"
 	"github.com/meshplus/go-libp2p-cert/pb"
 	"golang.org/x/crypto/poly1305"
 )
